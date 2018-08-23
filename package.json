@@ -2,8 +2,8 @@
   "main": "build/index.js",
   "entryPath": "src/app.js",
   "scripts": {
-    "dev:build": "./node_modules/.bin/gulp dev",
-    "prod:build": "./node_modules/.bin/gulp prod"
+    "dev:build": "gulp dev",
+    "prod:build": "gulp prod"
   },
   "devDependencies": {
     "autoprefixer": "^9.0.2",
@@ -38,5 +38,22 @@
     "uglifyjs-webpack-plugin": "^1.2.7",
     "url-loader": "^1.0.1",
     "webpack": "^4.16.3"
+  },
+  "name": "6ghadam-frontend-test",
+  "description": "run `npm run dev:build` and in another terminal run `node .`, then change `app.js` and build your react app. when you wanna test your app just open `http://localhost:5001`.",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/6Ghadam/6Ghadam-FrontEnd-Test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/6Ghadam/6Ghadam-FrontEnd-Test/issues"
+  },
+  "homepage": "https://github.com/6Ghadam/6Ghadam-FrontEnd-Test#readme",
+  "dependencies": {
+    "@material-ui/core": "^1.5.1",
+    "axios": "^0.18.0"
   }
 }
