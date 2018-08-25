@@ -1,5 +1,8 @@
 import React , { Component } from 'react'
 import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
+import store from './store'
+
 export default class App extends Component {
    render(){
       return(
@@ -9,5 +12,8 @@ export default class App extends Component {
 }
 
 ReactDOM.render(
-   <App/>,document.querySelector("#main")
+   <Provider store={store}>
+      <App />
+   </Provider>
+   ,document.querySelector("#main")
 )
