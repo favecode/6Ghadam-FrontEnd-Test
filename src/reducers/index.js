@@ -1,6 +1,6 @@
 export default (state = {}, action) => {
    switch (action.type) {
-      case 'LOGIN_USER':
+      case 'GET_TOKEN':
          return {
             ...state,
             token: action.token
