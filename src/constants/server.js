@@ -3,5 +3,7 @@ export const serverConstants = {
    WEBSERVICE_URL: '-6ghadam.herokuapp.com/api',
    AAA: 'aaa',
    DATA: 'data',
+   CLIENTS: '/clients',
+   LEAGUES : '/leagues'
 }
 
