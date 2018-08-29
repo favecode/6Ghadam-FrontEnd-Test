@@ -1,7 +1,8 @@
 import { serverConstants } from './../constants'
 import axios from 'axios'
 export const userService = {
-   loginUser
+   loginUser,
+   readLeagues
 }
 function loginUser(email, password) {
    let url =
@@ -18,4 +19,16 @@ function loginUser(email, password) {
       })
       .then(response => { return response })
       .catch(err => console.log(err))
+}
+function readLeagues(token) {
+   let url =
+      serverConstants.PROTOCOL +
+      serverConstants.DATA +
+      serverConstants.WEBSERVICE_URL +
+      serverConstants.LEAGUES +
+      serverConstants.ACCESS_TOKEN +
+      token
+   return axios.get(url)
+      .then(response => { return response })
+      .catch(err => console.log(err));
 }
