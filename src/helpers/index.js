@@ -2,7 +2,8 @@ import { userService } from './../api/service'
 
 export const apiFunctions = {
    loginUser,
-   readLeagues
+   readLeagues,
+   addLeague
 }
 
 function loginUser(email, password) {
@@ -15,6 +16,14 @@ function loginUser(email, password) {
 }
 function readLeagues(token) {
    userService.readLeagues(token)
+      .then(
+         (response) => {
+            console.log(response)
+         }
+      )
+}
+function addLeague(token, name, pictureURL) {
+   userService.addLeague(token, name, pictureURL)
       .then(
          (response) => {
             console.log(response)
