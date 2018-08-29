@@ -4,7 +4,8 @@ export const apiFunctions = {
    loginUser,
    readLeagues,
    addLeague,
-   updateLeague
+   updateLeague,
+   deleteLeague
 }
 
 function loginUser(email, password) {
@@ -33,6 +34,14 @@ function addLeague(token, name, pictureURL) {
 }
 function updateLeague(token, name, pictureURL, id) {
    userService.updateLeague(token, name, pictureURL, id)
+      .then(
+         (response) => {
+            console.log(response)
+         }
+      )
+}
+function deleteLeague(token, id) {
+   userService.deleteLeague(token, id)
       .then(
          (response) => {
             console.log(response)
