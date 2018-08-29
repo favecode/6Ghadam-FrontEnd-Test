@@ -4,7 +4,8 @@ export const userService = {
    loginUser,
    readLeagues,
    addLeague,
-   updateLeague
+   updateLeague,
+   deleteLeague
 }
 function loginUser(email, password) {
    let url =
@@ -65,6 +66,20 @@ function updateLeague(token, name, pictureURL, id) {
          "name": name,
          "id": id,
       })
+      .then(response => { return response })
+      .catch(err => console.log(err));
+}
+function deleteLeague(token, id) {
+   let url =
+      serverConstants.PROTOCOL +
+      serverConstants.DATA +
+      serverConstants.WEBSERVICE_URL +
+      serverConstants.LEAGUES +
+      '/' + id +
+      serverConstants.ACCESS_TOKEN +
+      token
+   return axios.delete(url,
+      {})
       .then(response => { return response })
       .catch(err => console.log(err));
 }
