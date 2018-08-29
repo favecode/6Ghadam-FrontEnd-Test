@@ -3,7 +3,8 @@ import axios from 'axios'
 export const userService = {
    loginUser,
    readLeagues,
-   addLeague
+   addLeague,
+   updateLeague
 }
 function loginUser(email, password) {
    let url =
@@ -45,6 +46,24 @@ function addLeague(token, name,pictureURL) {
       {
          "pictureURL": pictureURL,
          "name": name,
+      })
+      .then(response => { return response })
+      .catch(err => console.log(err));
+}
+function updateLeague(token, name, pictureURL, id) {
+   let url =
+      serverConstants.PROTOCOL +
+      serverConstants.DATA +
+      serverConstants.WEBSERVICE_URL +
+      serverConstants.LEAGUES +
+      '/' + id +
+      serverConstants.ACCESS_TOKEN +
+      token
+   return axios.put(url,
+      {
+         "pictureURL": pictureURL,
+         "name": name,
+         "id": id,
       })
       .then(response => { return response })
       .catch(err => console.log(err));
