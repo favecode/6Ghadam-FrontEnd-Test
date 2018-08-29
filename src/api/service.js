@@ -2,7 +2,8 @@ import { serverConstants } from './../constants'
 import axios from 'axios'
 export const userService = {
    loginUser,
-   readLeagues
+   readLeagues,
+   addLeague
 }
 function loginUser(email, password) {
    let url =
@@ -29,6 +30,22 @@ function readLeagues(token) {
       serverConstants.ACCESS_TOKEN +
       token
    return axios.get(url)
+      .then(response => { return response })
+      .catch(err => console.log(err));
+}
+function addLeague(token, name,pictureURL) {
+   let url =
+      serverConstants.PROTOCOL +
+      serverConstants.DATA +
+      serverConstants.WEBSERVICE_URL +
+      serverConstants.LEAGUES +
+      serverConstants.ACCESS_TOKEN +
+      token
+   return axios.post(url,
+      {
+         "pictureURL": pictureURL,
+         "name": name,
+      })
       .then(response => { return response })
       .catch(err => console.log(err));
 }
