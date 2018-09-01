@@ -13,6 +13,9 @@ import { textsConstants } from './../constants'
 // Public
 import logo from './../public/img/logo.png'
 
+// Actions
+import { loginUser } from './../actions'
+
 // Material UI
 import { withStyles } from '@material-ui/core/styles';
 import {
@@ -93,4 +96,11 @@ class Login extends Component {
       );
    }
 }
-export default withStyles(styles)(connect()(Login)) 
+const mapDispatchToProps = (dispatch) => {
+   return {
+      login : (token) => {
+         dispatch(loginUser(token))
+      }
+   }
+}
+export default withStyles(styles)(connect(null, mapDispatchToProps)(Login)) 
