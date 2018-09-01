@@ -3,5 +3,6 @@ export const textsConstants = {
    LoginHeader: 'صفحه ورود',
    EmailInput: 'ایمیل',
    PasswordInput: 'رمز عبور',
+   LoadingHeader: 'لطفا منتطر بمانید ...'
 }
 
