@@ -4,6 +4,7 @@ export const serverConstants = {
    AAA: 'aaa',
    DATA: 'data',
    CLIENTS: '/clients',
+   LOGIN: '/login',
    LEAGUES : '/leagues',
    ACCESS_TOKEN: '?access_token='
 }
