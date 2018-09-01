@@ -9,42 +9,42 @@ export const apiFunctions = {
 }
 
 function loginUser(email, password) {
-   userService.loginUser(email, password)
+      return userService.loginUser(email, password)
       .then(
-         (response) => {
-            console.log(response)
-         }
+            (response) => {
+                  return response
+            }
       )
 }
 function readLeagues(token) {
-   userService.readLeagues(token)
+      return userService.readLeagues(token)
       .then(
-         (response) => {
-            console.log(response)
-         }
+            (response) => {
+                  return response
+            }
       )
 }
 function addLeague(token, name, pictureURL) {
-   userService.addLeague(token, name, pictureURL)
+      return userService.addLeague(token, name, pictureURL)
       .then(
-         (response) => {
-            console.log(response)
-         }
+            (response) => {
+                  return response
+            }
       )
 }
 function updateLeague(token, name, pictureURL, id) {
-   userService.updateLeague(token, name, pictureURL, id)
+      return userService.updateLeague(token, name, pictureURL, id)
       .then(
-         (response) => {
-            console.log(response)
-         }
+            (response) => {
+                  return response
+            }
       )
 }
 function deleteLeague(token, id) {
-   userService.deleteLeague(token, id)
+      return userService.deleteLeague(token, id)
       .then(
-         (response) => {
-            console.log(response)
-         }
+            (response) => {
+                  return response
+            }
       )
 }
