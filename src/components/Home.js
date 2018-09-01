@@ -4,9 +4,6 @@ import React, { Component, Fragment } from 'react'
 // Redux
 import { connect } from 'react-redux'
 
-// Router
-import { BrowserRouter as Router, Route } from 'react-router-dom'
-
 // Constants
 import { textsConstants } from './../constants'
 
@@ -48,45 +45,54 @@ const styles = theme => ({
 
 // Component
 class Home extends Component {
-   render() {
-      const { token } = this.props.store
-      const { classes } = this.props
-      return (
-         <Router>
-            {token == null 
-            ?
-            <Fragment><Login/></Fragment> 
-            :
-            <Fragment>
-               <Grid container dir="rtl" justify="center" alignContent="center" >
-                  <Grid item sm={6}>
-                     <Paper item className={classes.Paper}>
-                        <Tabs
-                           fullWidth
-                           indicatorColor="primary"
-                           textColor="primary"
-                           value={0}
-                        >
-                           <Tab label={textsConstants.LeaguesLink} icon={<Info/>} 
-                              className={classes.Tab} data-link="leagues" onClick={this.handleClick}/>
-                           <Tab label={textsConstants.CreateLink} icon={<Add />} 
-                              className={classes.Tab} data-link="addLeague" onClick={this.handleClick}/>
-                           <Tab label={textsConstants.DeleteLink} icon={<Delete />} 
-                              className={classes.Tab} data-link="deleteLeague" onClick={this.handleClick}/>
-                           <Tab label={textsConstants.ChangeLink} icon={<Edit/>} 
-                              className={classes.Tab} data-link="changeLeague" onClick={this.handleClick}/>
-                        </Tabs>
-                        <Route path='/leagues' exact={true} component={Leagues} />
-                        <Route path='/addLeague' component={AddLeague} />
-                        <Route path='/deleteLeague' component={DeleteLeague} />
-                        <Route path='/changeLeague' component={ChangeLeague} />
-                     </Paper>
+      state = {
+            activeItem : 0
+      }
+      handleClick = (activeItem) => {
+            this.setState({
+                  activeItem
+            })
+      }
+      render() {
+            const { token } = this.props.store
+            const { classes } = this.props
+            const { activeItem } =  this.state
+            return (
+            <div>
+                  {token == null 
+                  ?
+                  <Fragment><Login/></Fragment> 
+                  :
+                  <Fragment>
+                  <Grid container dir="rtl" justify="center" alignContent="center" >
+                        <Grid item sm={6}>
+                        <Paper item className={classes.Paper}>
+                              <Tabs
+                              fullWidth
+                              indicatorColor="primary"
+                              textColor="primary"
+                              value={0}
+                              >
+                              <Tab label={textsConstants.LeaguesLink} icon={<Info/>} 
+                                    className={classes.Tab} onClick={() => {this.handleClick(0)}}/>
+                              <Tab label={textsConstants.CreateLink} icon={<Add />} 
+                                    className={classes.Tab} onClick={() => {this.handleClick(1)}}/>
+                              <Tab label={textsConstants.DeleteLink} icon={<Delete />} 
+                                    className={classes.Tab} onClick={() => {this.handleClick(2)}}/>
+                              <Tab label={textsConstants.ChangeLink} icon={<Edit/>} 
+                                    className={classes.Tab} onClick={() => {this.handleClick(3)}}/>
+                              </Tabs>
+                              {activeItem == 0 && <Leagues/>}
+                              {activeItem == 1 && <AddLeague/>}
+                              {activeItem == 2 && <DeleteLeague/>}
+                              {activeItem == 3 && <ChangeLeague/>}
+                        </Paper>
+                        </Grid>
                   </Grid>
-               </Grid>
-            </Fragment>}
-         </Router>
-      );
-   }
+                  </Fragment>}
+            </div>
+            );
+      }
 }
 
 const mapStateToProps = (state) => {
