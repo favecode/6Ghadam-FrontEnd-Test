@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import store from './store'
 import { BrowserRouter } from 'react-router-dom'
-import Routers from './Routers'
+import Home from './components/Home'
 export default class App extends Component {
    render(){
       return(
          <div>
             <BrowserRouter>
-               <Routers/>
+               <Home/>
             </BrowserRouter>
          </div>
       );
