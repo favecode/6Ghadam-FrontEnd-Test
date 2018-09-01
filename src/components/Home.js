@@ -28,4 +28,11 @@ class Home extends Component {
       );
    }
 }
-export default Home;
+
+const mapStateToProps = (state) => {
+   return {
+      store: state
+   }
+}
+
+export default connect(mapStateToProps,null)(Home)
