@@ -9,5 +9,6 @@ export const textsConstants = {
    DeleteLink: 'حذف',
    ChangeLink: 'تغییر',
    fetchData: 'در حال بارگذاری ...',
+   Leagues: 'لیگ ها'
 }
 
