@@ -24,6 +24,7 @@ import {
    Paper,
    Grid,
    Typography,
+   CircularProgress
 } from '@material-ui/core';
 
 // Styles
@@ -32,7 +33,6 @@ const styles = theme => ({
       padding: '1rem 2rem 2rem',
       marginTop: '1rem',
       borderRadius: '.6rem',
-
    },
    Button: {
       backgroundColor: '#4CAF50',
@@ -58,6 +58,23 @@ const styles = theme => ({
       color: '#222',
       fontFamily: 'iranSans',
       paddingBottom: '1rem'
+   },
+   Progress : {
+      color: '#4CAF50',
+      margin : '30px'
+   },
+   Loading : {
+      top : '0',
+      left : '0',
+      position : 'absolute',
+      backgroundColor : 'rgba(255,255,255,1)',
+      width : '100vw',
+      height : '100vh',
+      zIndex : '2',
+      display : 'flex',
+      flexDirection : 'column',
+      justifyContent : 'center',
+      alignItems : 'center'
    }
 })
 
@@ -65,7 +82,8 @@ const styles = theme => ({
 class Login extends Component {
    state = {
       email: 'admin@6ghadam.com',
-      password: '6Gh4d4m4dm1nP455'
+      password: '6Gh4d4m4dm1nP455',
+      loading : false
    }
    handleChange = (element) => {
       let { value , dataset } = element.target
@@ -74,9 +92,15 @@ class Login extends Component {
       })
    }
    handleClick = () => {
+      this.setState({
+          loading : true
+      })
       let { email, password } = this.state
       if(email != '' && password != ''){
          apiFunctions.loginUser(email, password).then(response => {
+            this.setState({
+               loading: false
+            })
             let token = response.data.id
             this.props.login(token)
          })
@@ -88,6 +112,17 @@ class Login extends Component {
          <Fragment>
             <Grid container dir="rtl" justify="center">
                <Grid item sm={4} className={classes.GridItem}>
+                  {this.state.loading 
+                  ?
+                  <div className={classes.Loading}>
+                     <CircularProgress className={classes.Progress} />
+                     <Typography variant="title" className={classes.Header} align="center">
+                        {textsConstants.LoadingHeader}
+                     </Typography>
+                  </div>
+                  :
+                  ''
+                  }
                   <img src={logo} width="150" />
                   <Paper className={classes.Paper}>
                      <Typography variant="title" className={classes.Header} align="center">
