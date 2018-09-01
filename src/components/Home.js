@@ -23,8 +23,30 @@ import {
 // Component
 class Home extends Component {
    render() {
+      const { token } = this.props.store
       return (
-         <div>Home</div>
+         <Router>
+            {token == null 
+            ?
+            <Fragment><Login/></Fragment> 
+            :
+            <Fragment>
+               <Grid container dir="rtl" justify="center" alignContent="center" >
+                  <Grid item sm={6}>
+                     <Paper item>
+                           <Link to="/leagues">Leagues</Link>
+                           <Link to="/addLeague">Create League</Link>
+                           <Link to="/deleteLeague">Delete League</Link>
+                           <Link to="/changeLeague">Change League</Link>
+                     </Paper>
+                  </Grid>
+               </Grid>
+               <Route path='/leagues' exact={true} component={Leagues}/>
+               <Route path='/addLeague' component={AddLeague}/>
+               <Route path='/deleteLeague' component={DeleteLeague}/>
+               <Route path='/changeLeague' component={ChangeLeague}/>
+            </Fragment>}
+         </Router>
       );
    }
 }
