@@ -64,8 +64,8 @@ const styles = theme => ({
 // Components
 class Login extends Component {
    state = {
-      email: '',
-      password: ''
+      email: 'admin@6ghadam.com',
+      password: '6Gh4d4m4dm1nP455'
    }
    handleChange = (element) => {
       let { value , dataset } = element.target
@@ -93,8 +93,10 @@ class Login extends Component {
                      <Typography variant="title" className={classes.Header} align="center">
                         {textsConstants.LoginHeader}
                      </Typography>
-                     <TextField fullWidth margin="normal" inputProps={{ 'data-type': 'email' }} onChange={this.handleChange} className={classes.Input} placeholder={textsConstants.EmailInput}/>
-                     <TextField fullWidth margin="normal" inputProps={{ 'data-type': 'password' }} onChange={this.handleChange} className={classes.Input} type="password" placeholder={textsConstants.PasswordInput}/>
+                     <TextField fullWidth margin="normal" inputProps={{ 'data-type': 'email' }} onChange={this.handleChange}
+                     className={classes.Input} defaultValue={this.state.email} placeholder={textsConstants.EmailInput}/>
+                     <TextField fullWidth margin="normal" inputProps={{ 'data-type': 'password' }} onChange={this.handleChange}
+                     className={classes.Input} type="password" defaultValue={this.state.password} placeholder={textsConstants.PasswordInput}/>
                      <Button onClick={this.handleClick} size="small" className={classes.Button} variant="contained" value="Login">
                         {textsConstants.LoginButton}
                      </Button>
