@@ -23,11 +23,63 @@ import {
    Typography,
 } from '@material-ui/core';
 
+// Styles
+const styles = theme => ({
+   Paper: {
+      padding: '1rem 2rem 2rem',
+      marginTop: '1rem',
+      borderRadius: '.6rem',
+
+   },
+   Button: {
+      backgroundColor: '#4CAF50',
+      color: 'white',
+      fontFamily: 'iranSans',
+      padding: '.1rem 2rem',
+      borderRadius: '3rem',
+      marginTop: '1rem',
+
+   },
+   GridItem: {
+      display: 'flex',
+      justifyContent: 'center',
+      flexDirection: 'column',
+      alignItems: 'center',
+      marginTop: '10vh'
+   },
+   Input: {
+      fontFamily: 'iranSans',
+      borderColor: 'gray'
+   },
+   Header: {
+      color: '#222',
+      fontFamily: 'iranSans',
+      paddingBottom: '1rem'
+   }
+})
+
 // Components
 class Login extends Component {
    render() {
+      const { classes } = this.props
       return (
-         <div>Login</div>
+         <Fragment>
+            <Grid container dir="rtl" justify="center">
+               <Grid item sm={4} className={classes.GridItem}>
+                  <img src={logo} width="150" />
+                  <Paper className={classes.Paper}>
+                     <Typography variant="display1" className={classes.Header} align="center">
+                        {textsConstants.LoginHeader}
+                     </Typography>
+                     <TextField fullWidth margin="normal" className={classes.Input} placeholder={textsConstants.EmailInput}/>
+                     <TextField fullWidth margin="normal" className={classes.Input} type="password" placeholder={textsConstants.PasswordInput}/>
+                     <Button onClick={this.handleClick} size="small" className={classes.Button} variant="contained" value="Login">
+                        {textsConstants.LoginButton}
+                     </Button>
+                  </Paper>
+               </Grid>
+            </Grid>
+         </Fragment>
       );
    }
 }
