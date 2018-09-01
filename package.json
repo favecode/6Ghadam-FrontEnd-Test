@@ -54,6 +54,7 @@
   "homepage": "https://github.com/6Ghadam/6Ghadam-FrontEnd-Test#readme",
   "dependencies": {
     "@material-ui/core": "^1.5.1",
+    "@material-ui/icons": "^3.0.1",
     "axios": "^0.18.0"
   }
 }
