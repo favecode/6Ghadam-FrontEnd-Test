@@ -8,5 +8,6 @@ export const textsConstants = {
    CreateLink: 'اضافه',
    DeleteLink: 'حذف',
    ChangeLink: 'تغییر',
+   fetchData: 'در حال بارگذاری ...',
 }
 
