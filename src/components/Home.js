@@ -82,10 +82,10 @@ class Home extends Component {
                               <Tab label={textsConstants.ChangeLink} icon={<Edit/>} 
                                     className={classes.Tab} onClick={() => {this.handleClick(3)}}/>
                               </Tabs>
-                              {activeItem == 0 && <Leagues/>}
-                              {activeItem == 1 && <AddLeague/>}
-                              {activeItem == 2 && <DeleteLeague/>}
-                              {activeItem == 3 && <ChangeLeague/>}
+                              {activeItem == 0 && <Leagues token={token}/>}
+                              {activeItem == 1 && <AddLeague token={token}/>}
+                              {activeItem == 2 && <DeleteLeague token={token}/>}
+                              {activeItem == 3 && <ChangeLeague token={token}/>}
                         </Paper>
                         </Grid>
                   </Grid>
