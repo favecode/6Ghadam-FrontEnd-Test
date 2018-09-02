@@ -9,7 +9,7 @@ import { textsConstants } from './../constants'
 
 // Icon
 import {
-   AddCircle,
+   Add,
    Delete,
    Edit
 } from '@material-ui/icons';
@@ -34,8 +34,10 @@ import {
 const styles = theme => ({
    Typography : {
       fontFamily : 'iranSans',
-      padding : '10px',
-      textAlign: 'center'
+      padding : '1rem',
+      marginTop : '1rem',
+      textAlign: 'center',
+      color: '#322e2e'
    },
    TableCell : {
       fontFamily: 'iranSans',
@@ -62,6 +64,12 @@ const styles = theme => ({
    AddCircle : {
       color: 'rgba(0, 0, 0, 0.54)',
       cursor: 'pointer',
+   },
+   Add : {
+      display : 'flex',
+      justifyContent : 'center',
+      alignItems : 'center',
+      cursor : 'pointer'
    }
 })
 
@@ -129,10 +137,18 @@ class Leagues extends Component {
                      <Typography variant="display1" className={classes.Typography} >
                         {textsConstants.Leagues}
                      </Typography>
-                     <AddCircle className={classes.AddCircle} onClick={this.Add}/>
+                     
                   </div>
                   <Table>
                      <TableBody>
+                        <TableRow>
+                           <TableCell className={classes.TableCell} onClick={this.Add}>
+                              <div className={classes.Add}>
+                                 <Add className={classes.AddCircle} />
+                                 {textsConstants.Create}
+                              </div>
+                           </TableCell>
+                        </TableRow>
                         {Object.values(leagues).map(league =>
                            <TableRow>
                               <TableCell className={classes.TableCell}>
