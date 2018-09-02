@@ -97,13 +97,13 @@ class Login extends Component {
       })
       let { email, password } = this.state
       if(email != '' && password != ''){
-         apiFunctions.loginUser(email, password).then(response => {
+        apiFunctions.loginUser(email, password).then(response => {
             this.setState({
-               loading: false
+                loading: false
             })
             let token = response.data.id
             this.props.login(token)
-         })
+        })
       }
    }
    render() {
